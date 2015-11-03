@@ -9,7 +9,37 @@
     <script src="js/mui.pullToRefresh.material.js"></script>
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link href="css/font-awesome.css" rel="stylesheet"/>
-    <script type="text/javascript" charset="utf-8">
+    
+    <style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+		</style>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+			<h1 id="title" class="mui-title">秒杀</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a id="defaultTab" class="mui-tab-item mui-active" href="list.html">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">秒杀</span>
+			</a>
+			<a class="mui-tab-item" href="TradingCode.html">
+				<span class="mui-icon fa fa-rmb"></span>
+				<span class="mui-tab-label">验证</span>
+			</a>
+			<a class="mui-tab-item" href="discover.html">
+				<span class="mui-icon mui-icon-search"></span>
+				<span class="mui-tab-label">发现</span>
+			</a>
+			<a class="mui-tab-item" href="my.html">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		<script type="text/javascript" charset="utf-8">
     	//mui初始化
 			mui.init();
 			var subpages = ['list.html', 'TradingCode.html', 'discover.html', 'my.html'];
@@ -90,34 +120,5 @@
 		
 		};
     </script>
-    <style>
-			html,
-			body {
-				background-color: #efeff4;
-			}
-		</style>
-</head>
-<body>
-    <header class="mui-bar mui-bar-nav">
-			<h1 id="title" class="mui-title">秒杀</h1>
-		</header>
-		<nav class="mui-bar mui-bar-tab">
-			<a id="defaultTab" class="mui-tab-item mui-active" href="list.html">
-				<span class="mui-icon mui-icon-home"></span>
-				<span class="mui-tab-label">秒杀</span>
-			</a>
-			<a class="mui-tab-item" href="TradingCode.html">
-				<span class="mui-icon fa fa-rmb"></span>
-				<span class="mui-tab-label">验证</span>
-			</a>
-			<a class="mui-tab-item" href="discover.html">
-				<span class="mui-icon mui-icon-search"></span>
-				<span class="mui-tab-label">发现</span>
-			</a>
-			<a class="mui-tab-item" href="my.html">
-				<span class="mui-icon mui-icon-contact"></span>
-				<span class="mui-tab-label">我的</span>
-			</a>
-		</nav>
 </body>
 </html>

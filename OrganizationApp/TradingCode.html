@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title></title>
-    <script src="js/mui.min.js"></script>
-    <link href="css/mui.min.css" rel="stylesheet"/>
-    <link href="css/font-awesome.css" rel="stylesheet"/>
-    <script type="text/javascript" charset="utf-8">
-      	mui.init({
-			swipeBack:true //启用右滑关闭功能
-		});
-    </script>
-</head>
-<body>
-    <div class="mui-content">
-  <span class="mui-icon fa fa-spin fa-spinner"></span>正在加载...
-  </div>
-</body>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/font-awesome.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+		<style>
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="title">
+				<p>验证消费码</p>
+			</div>
+			<!-- Table -->
+			<div class="panel-body">
+				<input onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" type="text" class="mui-input" id="SendCode" placeholder="请输入消费码">
+				<button class="mui-btn mui-btn-primary mui-pull-right" contenteditable="true" type="button">验证</button>
+			</div>
+		</div>
+	</body>
+
 </html>
