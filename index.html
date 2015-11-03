@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script src="js/mui.pullToRefresh.js"></script>
+    <script src="js/mui.pullToRefresh.material.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/font-awesome.css" rel="stylesheet"/>
+    <style>
+			.mui-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 998;
+    background-color: rgba(0,0,0,.3);
+}
+    </style>
+    <script>
+    	var first = null;
+mui.back = function() {
+    //首次按键，提示‘再按一次退出应用’
+    if (!first) {
+        first = new Date().getTime();
+        mui.toast('再按一次退出应用');
+        setTimeout(function() {
+            first = null;
+        }, 1000);
+    } else {
+        if (new Date().getTime() - first < 1000) {
+            plus.runtime.quit();
+        }
+    }
+
+};
+    </script>
+</head>
+<body>
+	  <header class="mui-bar mui-bar-nav">
+      <h1 class="mui-title">求秒杀</h1>
+    </header>
+    <div class="mui-content">
+  <!--下拉刷新容器-->
+<div id="refreshContainer" class="mui-content mui-scroll-wrapper mui-backdrop">
+  <div class="mui-scroll">
+    <!--数据列表-->
+    <ul class="mui-table-view mui-table-view-chevron" id="DataList">
+      <li class="mui-table-view-cell">收到一个保养汽车订单<button type="button" class="mui-btn mui-btn-warning">马上秒杀</button></li>
+	<li class="mui-table-view-cell">收到一个维修汽车订单<button type="button" class="mui-btn mui-btn-warning">马上秒杀</button></li>
+	<li class="mui-table-view-cell">收到一个汽车美容订单<button type="button" class="mui-btn mui-btn-warning">马上秒杀</button></li>
+    </ul>
+  </div>
+</div>
+  </div>
+</body>
+<script>
+      	mui.init({
+pullRefresh: {
+    container:"#refreshContainer",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+    down: {
+    	contentdown : "下拉可以刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+      contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+      contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+      callback :downpullfresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+    }
+}
+});
+function downpullfresh() {
+     setTimeout(function() {
+					var table = document.body.querySelector('#DataList');
+					var cells = document.body.querySelectorAll('#DataList .mui-table-view-cell');
+					for (var i = cells.length, len = i + 3; i < len; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell';
+						li.innerHTML = '收到一个订单<button type="button" class="mui-btn mui-btn-warning">马上秒杀</button>';
+						//下拉刷新，新纪录插到最前面；
+						table.insertBefore(li, table.firstChild);
+					}
+					mui('#refreshContainer').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1500);
+}
+mui("#refreshContainer .mui-table-view").on('tap','.mui-table-view-cell',function(){
+	mui.toast('秒杀成功，可在我的秒杀查询订单');
+	
+})
+</script>
+</html>
