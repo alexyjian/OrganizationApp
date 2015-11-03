@@ -62,7 +62,7 @@
 				mui.toast('秒杀成功，可在我的秒杀查询订单');
 			})
 			var deceleration = mui.os.ios ? 0.003 : 0.0009;
-			$('.mui-scroll-wrapper').scroll({
+			mui('.mui-scroll-wrapper').scroll({
 				bounce: false,
 				indicators: true, //是否显示滚动条
 				deceleration: deceleration
@@ -86,7 +86,7 @@
 		<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<ul class="mui-table-view mui-table-view-chevron">
-					<li class="mui-table-view-cell">收到一个汽车保养订单<button type="button" class="mui-btn-warning mui-pull-right">马上秒杀</button>
+					<li class="mui-table-view-cell">收到一个汽车保养订单<button type="button" class="mui-btn mui-btn-warning mui-pull-right">马上秒杀</button>
 					</li>
 				</ul>
 			</div>
