@@ -18,11 +18,8 @@
 		</style>
 </head>
 <body>
-    <header class="mui-bar mui-bar-nav">
-			<h1 id="title" class="mui-title">秒杀</h1>
-		</header>
 		<nav class="mui-bar mui-bar-tab">
-			<a id="defaultTab" class="mui-tab-item mui-active" href="list.html">
+			<a id="defaultTab" class="mui-tab-item mui-active" href="webview_title1.html">
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">秒杀</span>
 			</a>
@@ -30,7 +27,7 @@
 				<span class="mui-icon fa fa-rmb"></span>
 				<span class="mui-tab-label">验证</span>
 			</a>
-			<a class="mui-tab-item" href="discover.html">
+			<a class="mui-tab-item" href="webview_title2.html">
 				<span class="mui-icon mui-icon-search"></span>
 				<span class="mui-tab-label">发现</span>
 			</a>
@@ -42,9 +39,9 @@
 		<script type="text/javascript" charset="utf-8">
     	//mui初始化
 			mui.init();
-			var subpages = ['list.html', 'TradingCode.html', 'discover.html', 'my.html'];
+			var subpages = ['webview_title1.html', 'TradingCode.html', 'webview_title2.html','my.html'];
 			var subpage_style = {
-				top: '45px',
+				top: '0px',
 				bottom: '51px'
 			};
 			
@@ -67,7 +64,7 @@
 			});
 			 //当前激活选项
 			var activeTab = subpages[0];
-			var title = document.getElementById("title");
+//			var title = document.getElementById("title");
 			 //选项卡点击事件
 			mui('.mui-bar-tab').on('tap', 'a', function(e) {
 				var targetTab = this.getAttribute('href');
@@ -75,7 +72,7 @@
 					return;
 				}
 				//更换标题
-				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+//				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
 				//显示目标选项卡
 				if(mui.os.ios||aniShow[targetTab]){
 					plus.webview.show(targetTab);
